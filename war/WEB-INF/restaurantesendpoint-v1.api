@@ -1,0 +1,198 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://comidaboteco-177014.appspot.com/_ah/api",
+  "name" : "restaurantesendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "discovery" : [ "PUBLIC" ],
+  "adapter" : {
+    "bns" : "https://comidaboteco-177014.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "boteco.comida",
+  "ownerName" : "boteco.comida",
+  "packagePath" : "server",
+  "methods" : {
+    "restaurantesendpoint.removeRestaurantes" : {
+      "path" : "restaurantes/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "comida.boteco.server.RestaurantesEndpoint.removeRestaurantes",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "restaurantesendpoint.insertRestaurantes" : {
+      "path" : "restaurantes",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "comida.boteco.server.RestaurantesEndpoint.insertRestaurantes",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "restaurantesendpoint.updateRestaurantes" : {
+      "path" : "restaurantes",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "comida.boteco.server.RestaurantesEndpoint.updateRestaurantes",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "restaurantesendpoint.listRestaurantes" : {
+      "path" : "restaurantes",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "comida.boteco.server.RestaurantesEndpoint.listRestaurantes",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "restaurantesendpoint.getRestaurantes" : {
+      "path" : "restaurantes/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "comida.boteco.server.RestaurantesEndpoint.getRestaurantes",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Restaurantes" : {
+        "id" : "Restaurantes",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer"
+          },
+          "nome" : {
+            "type" : "string"
+          },
+          "endereco" : {
+            "type" : "string"
+          },
+          "telefone" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "CollectionResponse_Restaurantes" : {
+        "id" : "CollectionResponse_Restaurantes",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Restaurantes"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "comida.boteco.server.RestaurantesEndpoint.removeRestaurantes" : {
+      },
+      "comida.boteco.server.RestaurantesEndpoint.insertRestaurantes" : {
+        "request" : {
+          "$ref" : "Restaurantes"
+        },
+        "response" : {
+          "$ref" : "Restaurantes"
+        }
+      },
+      "comida.boteco.server.RestaurantesEndpoint.updateRestaurantes" : {
+        "request" : {
+          "$ref" : "Restaurantes"
+        },
+        "response" : {
+          "$ref" : "Restaurantes"
+        }
+      },
+      "comida.boteco.server.RestaurantesEndpoint.listRestaurantes" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Restaurantes"
+        }
+      },
+      "comida.boteco.server.RestaurantesEndpoint.getRestaurantes" : {
+        "response" : {
+          "$ref" : "Restaurantes"
+        }
+      }
+    }
+  }
+}

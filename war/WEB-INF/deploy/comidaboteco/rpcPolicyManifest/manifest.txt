@@ -1,0 +1,3 @@
+# Module comidaboteco
+# RPC service class, partial path of RPC policy file
+comida.boteco.client.GreetingService, C1E871D30B7B22C30F3B9D3C5ABB526E.gwt.rpc

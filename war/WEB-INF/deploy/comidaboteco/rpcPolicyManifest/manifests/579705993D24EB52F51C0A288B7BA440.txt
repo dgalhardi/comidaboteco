@@ -1,0 +1,2 @@
+serviceClass: comida.boteco.client.GreetingService
+path: C1E871D30B7B22C30F3B9D3C5ABB526E.gwt.rpc
